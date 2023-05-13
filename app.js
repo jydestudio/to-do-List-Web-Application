@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const lodash = require('lodash');
@@ -13,10 +14,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 let taskData = [];
 let title = "";
 formattedDate = today.formattedDate;
-let password = process.env.PASSWORD;
-
+const PASSWORD = process.env.PASSWORD;
+console.log(PASSWORD);
 // Fuejr9C4oQxW9prC
-mongoose.connect(`mongodb+srv://fatokilawrence2002:${password}@cluster0.vcmakaz.mongodb.net/todolistDB?retryWrites=true&w=majority', {useNewUrlParser: true})
+
+
+mongoose.connect(`mongodb+srv://fatokilawrence2002:${PASSWORD}@cluster0.vcmakaz.mongodb.net/todolistDB?retryWrites=true&w=majority`, {useNewUrlParser: true})
 .then(function(db){
     console.log("Database is connected successfully");
 })
