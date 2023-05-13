@@ -177,6 +177,10 @@ input[type=checkbox]{
         width: 90%;
         border-radius: 10px;
     }
+    
+    .date {
+        top: 5%;
+    }
 }
 
 #main-section  p {
