@@ -1,0 +1,193 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#main-section {
+    width: 100%;
+    height: 100vh;
+    padding: 5% 0;
+    text-align: center;
+}
+
+#main-section .new-category-btn {
+    text-decoration: none;
+    color: black;
+    position:fixed;
+    top: 5%;
+    left: 10%;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+
+.date {
+    width: 50%;
+    left: 25%;
+    position: fixed;
+    top: 15%;
+}
+
+.new-category-btn:hover {
+    letter-spacing: 1.2px;
+    color: rgb(53, 52, 52);
+}
+
+
+#main-section > div {
+    width: 300px;
+    height: auto;
+    display: inline-block;
+    margin: 25vh auto 20px;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(2, 2, 2, 0.377);
+    position: relative;
+
+}
+
+
+#main-section .alert-message {
+    width: 100%;
+    position: absolute;
+    background: rgba(255, 255, 0, 0.596);
+    color: black;
+    padding: 4%;
+    border-radius: 20px;
+    top: -25%;
+    box-sizing: border-box;
+    display: none;
+}
+
+
+#main-section div h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    padding: 2%;
+    border-radius: 20px 20px 0 0;
+    color: whitesmoke;
+}
+
+#main-section div ul {
+    padding: 5% 10%;
+}
+
+#main-section div .tasks {
+    text-align: left;
+    list-style: none;
+    color: #1a1a1a;
+    padding: 5%;
+    border-bottom: 1px solid #1a1a1a23;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+
+#main-section .tasks li {
+    display: block;
+    margin: 0 5%;
+}
+
+input[type=checkbox]{
+    accent-color: whitesmoke;
+    background-color: whitesmoke;
+    border-color: whitesmoke;
+}
+
+
+#main-section input[type=checkbox]:checked + li {
+    color: #1a1a1a67;
+    text-decoration: line-through;
+}
+
+
+#main-section div .input-form {
+    margin: 15% 0;
+    padding: 0;
+}
+
+
+#main-section div input[type=text], .create-form input {
+    width: 78%;
+    padding: 0 5%;
+    height: 40px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 8px 0 0 8px;
+    background-color: transparent;
+    border: 1px solid #1a1a1a23;
+    box-shadow: 0 0 10px #1a1a1a23;
+}
+
+
+
+#main-section div button, .create-form button {
+    width: 20%;
+    height: 40px;
+    color: whitesmoke;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px #1a1a1a23;
+    border-radius: 0 8px 8px 0;
+}
+
+
+
+
+/* styling for create new task page */
+
+.create-form {
+    width: 500px;
+    padding: 5%;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.create-form input {
+    height: 60px
+}
+
+.create-form button {
+    border: 0;
+    height: 60px;
+}
+
+
+@media only screen and (max-width: 900px){
+    #main-section .new-todo-list {
+        font-size: 0.8rem;
+        width: 70px;
+        padding: 3%;
+    }
+
+    .create-form {
+        width: 300px;
+        text-align: center;
+    }
+
+    .create-form input {
+        width: 90%;
+        display: inline-block;
+        border-radius: 10px;
+        margin: 5% 0;
+    }
+
+    .create-form button {
+        width: 90%;
+        border-radius: 10px;
+    }
+}
+
+#main-section  p {
+    font-size: 0.8rem;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.copy {
+    position: absolute;
+    width: 50%;
+    bottom: 10%;
+    right: 25%;
+}

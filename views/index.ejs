@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">
+
+    <title>To-do list</title>
+</head>
+<body>
+    <section id="main-section">
+        <a href="/" class="new-category-btn"><i class="fa fa-plus"></i> new category</a>
+        <h1 class="date"><i class="fa fa-calendar"></i> <%=date %></h1>
+        
+        <div>
+            <p class="alert-message">Ticked tasks will delete in <span id="sec">5</span>(s)</p>
+
+            <h1><%=title %></h1>
+            <ul>
+                <% data.forEach(function(task){ %>
+                    <form action="/delete" method="post">
+                        <div class="tasks">
+                                <input name="idOfTask" class="checkbox" value="<%=task._id%>" type="checkbox"> 
+                                <input type="hidden" name="categoryTitle" value="<%=title%>">
+                                <li class="li"><%= task.name %></li>
+                        </div>
+                    </form>
+                <% }) %>
+            
+
+                <form class="input-form" action="/new" method="post">
+                    <input type="text" name="newTask" required placeholder="type in new tasks..">
+                    <button type="submit" name="title" value="<%=title%>"><i class="fa fa-plus"></i></button>
+                </form>
+
+            </ul>
+        </div>
+
+        
+    <p>&copy copyright fatoki lawrence 2023.</p>
+    </section>
+    
+    <script>
+
+        var colors = ["34568B", "363945", "D2386C", "926AA6", "00A170", "0072B5", "B55A30", "C3447A", "BC243C", "E15D44", "55B4B0", "9B2335", "5B5EA6", "D65076", "009B77", "955251"];
+        var randomColor = colors[Math.floor(Math.random() * colors.length)];
+        console.log(Math.floor(Math.random() * colors.length));
+
+        document.querySelector("#main-section").style.background = `linear-gradient(whitesmoke 50%, #${randomColor} 50%)`;
+
+
+        var date = document.querySelector(".date").style.color = `#${randomColor}`;
+        document.querySelector("#main-section div h1").style.background = `#${randomColor}`;
+        var btn = document.querySelector("#main-section div button").style.background = `#${randomColor}`;
+        var btn = document.querySelector("#main-section div button").style.border = `1px solid #${randomColor}`;
+
+
+        let checks = document.querySelectorAll(".checkbox");
+        let alertMsg = document.querySelector(".alert-message");
+        let seconds = document.querySelector("#sec");
+
+        let deleteState = "";
+
+        function sleep(ms){
+            return new Promise(delay => setTimeout(delay, ms));
+        }
+
+        
+        checks.forEach(function(check){
+            check.addEventListener("change", function(){
+                if (this.checked) {
+                    alertMsg.style.display = "block";
+                    deleteState = "delete";
+
+                    async function f() {
+                        for (a=1; a>0; a--){
+
+                            if (deleteState == "delete"){
+                                seconds.innerHTML = a;
+                                await sleep(1000);
+                            } else {
+                                break
+                            }
+                        }
+
+                        if (deleteState == "delete"){
+                            check.form.submit();
+                        }
+                    }
+
+                    f();
+                    
+                } else {
+                    alertMsg.style.display = "none";
+                    deleteState = "don't delete";
+                }
+            })
+        })
+
+        // checks.forEach(function(check){
+        //     check.addEventListener("click", function(){
+
+        //         if (alertStatus == "displayed"){
+        //             alertMsg.style.display = "none";
+        //             alertStatus = "hidden";
+        //             deleteState = "don't delete";
+                
+
+        //         } else {
+        //             alertMsg.style.display = "block";
+        //             alertStatus = "displayed";
+        //             deleteState = "delete";
+
+        //             const countDown = async () => {
+        //                 for (a = 3; a > 0; a--){
+
+        //                     if (deleteState != "delete"){
+        //                         break
+        //                     }
+
+        //                     seconds.innerHTML = a;
+        //                     await sleep(1000);
+        //                 }
+
+        //                 if (deleteState == "delete"){
+        //                     check.form.submit();
+        //                 }
+                        
+        //             }
+                        
+        //             countDown();
+
+        //         }
+
+                
+        //     })
+        // })
+       
+    </script>
+</body>
+</html>

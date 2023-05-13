@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">
+
+    <title>To-do list</title>
+</head>
+<body>
+    <section id="main-section">
+        <h1 class="date"><i class="fa fa-calendar"></i> <%=date %></h1>
+        
+            
+
+                <form class="create-form" action="/create" method="post">
+                    <input type="text" name="title" required placeholder="type in a category for your todo-list..">
+                    <button type="submit" value=""><i class="fa fa-plus"></i></button>
+                </form>
+
+            </ul>
+        </div>
+
+        
+    <p class="copy">&copy copyright fatoki lawrence 2023.</p>
+    </section>
+
+    <script>
+
+        var colors = ["34568B", "363945", "D2386C", "926AA6", "00A170", "0072B5", "B55A30", "C3447A", "BC243C", "E15D44", "55B4B0", "9B2335", "5B5EA6", "D65076", "009B77", "955251"];
+        var randomColor = colors[Math.floor(Math.random() * colors.length)];
+        console.log(randomColor);
+        document.querySelector("#main-section").style.background = `linear-gradient(whitesmoke 50%, #${randomColor} 50%)`;
+
+        document.querySelector("h1").style.color = `#${randomColor}`;
+        document.querySelector("button").style.background = `#${randomColor}`;
+
+    </script>
+</body>
+</html>
