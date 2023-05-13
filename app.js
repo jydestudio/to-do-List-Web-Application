@@ -15,8 +15,6 @@ let taskData = [];
 let title = "";
 formattedDate = today.formattedDate;
 const PASSWORD = process.env.PASSWORD;
-console.log(PASSWORD);
-// Fuejr9C4oQxW9prC
 
 
 mongoose.connect(`mongodb+srv://fatokilawrence2002:${PASSWORD}@cluster0.vcmakaz.mongodb.net/todolistDB?retryWrites=true&w=majority`, {useNewUrlParser: true})
